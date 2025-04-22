@@ -35,4 +35,7 @@ public class Object {
         this.size = size;
         this.bounds = new Rectangle(x, y, size, size);
     }
+    public Rectangle getBounds(){
+        return bounds;
+    }
 }
