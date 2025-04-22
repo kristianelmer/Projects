@@ -5,4 +5,5 @@ public enum GameState {
     GAME_OVER,
     WELCOME,
     PAUSE,
+    QUIT
 }

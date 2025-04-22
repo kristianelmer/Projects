@@ -31,6 +31,8 @@ public class GameModel {
         gameHeight = 960;
         cols = gameWidth/tilesize;
         rows = gameHeight/tilesize;
+        hoverTile = new Objects(12, 10, 1);
+        movingObject = null;
     }
     private void set(Objects object){
         setObjects.add(object);
@@ -54,6 +56,7 @@ public class GameModel {
     private boolean tileNotEmpty(){
         Iterator<Objects> it = setObjects.iterator();
         while (it.hasNext()){
+            System.out.println(setObjects.size());
             Objects object = (Objects) it.next();
             if (object.getX() == hoverTile.getX() && object.getY() == hoverTile.getY()){
                 return true;
@@ -75,16 +78,12 @@ public class GameModel {
         updateKeyPressed();
     }
     private void updateKeyPressed(){
+        if (controller.qpressed) gameState = GameState.QUIT;
+        
         if (gameState == GameState.WELCOME){
             if (controller.spacepressed) gameState = GameState.ACTIVE;
         }
         else if (gameState == GameState.ACTIVE){
-            if (controller.downPressed) move(0, 1, movingObject);
-            if (controller.upPressed) move(0, -1, movingObject);
-            if (controller.leftPressed) move(-1, 0, movingObject);
-            if (controller.rightPressed) move(1, 0, movingObject);
-            if (controller.spacepressed) set(movingObject);
-
             if (emtyObject()){
                 if (controller.downPressed) move(0, 1, hoverTile);
                 if (controller.upPressed) move(0, -1, hoverTile);
@@ -93,6 +92,13 @@ public class GameModel {
                 if (controller.spacepressed && tileNotEmpty()) makeMovable(getObject());
                 if (controller.qpressed && tileNotEmpty()) remove(getObject());
                 if (controller.rpressed) movingObject = new FarmHouse(hoverTile.getX(), hoverTile.getY(), 1);
+            }
+            else{
+                if (controller.downPressed) move(0, 1, movingObject);
+                if (controller.upPressed) move(0, -1, movingObject);
+                if (controller.leftPressed) move(-1, 0, movingObject);
+                if (controller.rightPressed) move(1, 0, movingObject);
+                if (controller.spacepressed) set(movingObject);
             }
         }
     }
@@ -115,5 +121,11 @@ public class GameModel {
     }
     public GameState getGameState(){
         return gameState;
+    }
+    public int getTileSize(){
+        return tilesize;
+    }
+    public Objects getHoverTile(){
+        return hoverTile;
     }
 }
