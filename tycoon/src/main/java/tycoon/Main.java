@@ -1,7 +1,9 @@
 package tycoon;
 
+import tycoon.model.Grid;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        Grid grid = new Grid(10, 12, 's');
     }
 }
