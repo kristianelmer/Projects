@@ -2,13 +2,13 @@ package tycoon.model.objects;
 
 import java.awt.Rectangle;
 
-public class Object {
+public class Objects {
     private int x;
     private int y;
     private int level;
     private int size = 48;
     private Rectangle bounds;
-    public Object(int x, int y, int level){
+    public Objects(int x, int y, int level){
         this.x = x;
         this.y = y;
         this.level = level;
