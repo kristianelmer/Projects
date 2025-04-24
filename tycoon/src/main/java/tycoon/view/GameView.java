@@ -7,6 +7,7 @@ import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
@@ -23,17 +24,23 @@ public class GameView extends JPanel implements Runnable {
     GameModel model;
     Controller controller = new Controller();
 
+    BufferedImage bank;
+    BufferedImage ChickenCoop;
+    BufferedImage factory;
     BufferedImage farmHouse;
+    BufferedImage fishHut;
+    BufferedImage middleClassHouse;
+    BufferedImage PeasantHouse;
+    BufferedImage shop;
+    BufferedImage wealthyHouse;
+    HashMap<Item, BufferedImage> structureImages;
+
     BufferedImage welcome;
+
     Menu menu = new Menu();
 
     public GameView(){
-        try {
-            farmHouse = ImageIO.read(getClass().getResourceAsStream("/craftpix/Objects/7House/1.png"));
-            welcome = ImageIO.read(getClass().getResourceAsStream("/welcome.jpg"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        getImages();
         model = new GameModel(controller);
 
         this.setPreferredSize(new Dimension(model.getGameWidth(),model.getGameHeight()));
@@ -41,6 +48,26 @@ public class GameView extends JPanel implements Runnable {
         this.setDoubleBuffered(true);
         this.addKeyListener(controller);
         this.setFocusable(true);
+    }
+
+    private void getImages(){
+        ArrayList<Item> items = menu.getitems();
+        structureImages = new HashMap<>();
+        try {
+            farmHouse = ImageIO.read(getClass().getResourceAsStream("/craftpix/Objects/7House/1.png"));
+            welcome = ImageIO.read(getClass().getResourceAsStream("/welcome.png"));
+            structureImages.put(items.get(0), ImageIO.read(getClass().getResourceAsStream("/structures/chickencoop.png")));
+            structureImages.put(items.get(1), ImageIO.read(getClass().getResourceAsStream("/structures/fishhut.png")));
+            structureImages.put(items.get(2), ImageIO.read(getClass().getResourceAsStream("/structures/peasanthouse.png")));
+            structureImages.put(items.get(3), ImageIO.read(getClass().getResourceAsStream("/structures/farmhouse.png")));
+            structureImages.put(items.get(4), ImageIO.read(getClass().getResourceAsStream("/structures/middleclasshouse.png")));
+            structureImages.put(items.get(5), ImageIO.read(getClass().getResourceAsStream("/structures/shop.png")));
+            structureImages.put(items.get(6), ImageIO.read(getClass().getResourceAsStream("/structures/factory.png")));
+            structureImages.put(items.get(7), ImageIO.read(getClass().getResourceAsStream("/structures/bank.png")));
+            structureImages.put(items.get(8), ImageIO.read(getClass().getResourceAsStream("/structures/wealthyhouse.png")));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
     
     @Override
@@ -88,7 +115,7 @@ public class GameView extends JPanel implements Runnable {
         g2.drawRect(object.getX(), object.getY(), model.getTileSize(), model.getTileSize());
     }
     private void drawMenu(Graphics2D g2){
-
+        
     }
 
 
@@ -117,7 +144,6 @@ public class GameView extends JPanel implements Runnable {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            
         }
     }
 

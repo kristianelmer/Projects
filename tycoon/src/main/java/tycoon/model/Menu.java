@@ -1,7 +1,7 @@
 package tycoon.model;
 
 import java.util.ArrayList;
-import java.util.Dictionary;
+import java.util.HashMap;
 
 import tycoon.model.items.Bank;
 import tycoon.model.items.ChickenCoop;
@@ -16,11 +16,15 @@ import tycoon.model.items.WealthyHouse;
 
 public class Menu {
     ArrayList<Item> items;
-    Dictionary<Item, Boolean> access;
-    Dictionary<Item, Integer> price;
+    HashMap<Item, Boolean> access;
+    HashMap<Item, Integer> price;
     int money;
     public Menu(){
         money = 100;
+        items = new ArrayList<>();
+        access = new HashMap<>();
+        price = new HashMap<>();
+        
         items.add(new ChickenCoop(0, 0, 1));
         items.add(new FishHut(0, 0, 2));
         items.add(new PeasantHouse(0, 0, 3));
@@ -41,10 +45,10 @@ public class Menu {
     public ArrayList<Item> getitems(){
         return items;
     }
-    public Dictionary<Item, Boolean> getAccess(){
+    public HashMap<Item, Boolean> getAccess(){
         return access;
     }
-    public Dictionary<Item, Integer> getPrice(){
+    public HashMap<Item, Integer> getPrice(){
         return price;
     }
 
