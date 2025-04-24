@@ -1,6 +1,6 @@
-package tycoon.model.objects;
+package tycoon.model.items;
 
-public class WealthyHouse extends Objects{
+public class WealthyHouse extends Item{
 
     public WealthyHouse(int x, int y, int level) {
         super(x, y, level);

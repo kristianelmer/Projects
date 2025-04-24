@@ -1,14 +1,14 @@
-package tycoon.model.objects;
+package tycoon.model.items;
 
 import java.awt.Rectangle;
 
-public class Objects {
+public class Item {
     private int x;
     private int y;
     private int level;
     private int size = 48;
     private Rectangle bounds;
-    public Objects(int x, int y, int level){
+    public Item(int x, int y, int level){
         this.x = x;
         this.y = y;
         this.level = level;

@@ -4,18 +4,18 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 import tycoon.controller.Controller;
-import tycoon.model.objects.FarmHouse;
-import tycoon.model.objects.Objects;
+import tycoon.model.items.FarmHouse;
+import tycoon.model.items.Item;
 
 public class GameModel {
     int money;
     int xp;
     int tilesize;
-    Objects movingObject;
-    ArrayList<Objects> setObjects;
+    Item movingObject;
+    ArrayList<Item> setObjects;
     Controller controller;
     GameState gameState;
-    Objects hoverTile;
+    Item hoverTile;
     int gameWidth;
     int gameHeight;
     int cols;
@@ -31,18 +31,18 @@ public class GameModel {
         gameHeight = 960;
         cols = gameWidth/tilesize;
         rows = gameHeight/tilesize;
-        hoverTile = new Objects(12, 10, 1);
+        hoverTile = new Item(12, 10, 1);
         movingObject = null;
     }
-    private void set(Objects object){
+    private void set(Item object){
         setObjects.add(object);
         movingObject = null;
     }
-    private void makeMovable(Objects object){
+    private void makeMovable(Item object){
         movingObject = null;
         setObjects.remove(object);
     }
-    private void remove(Objects object){
+    private void remove(Item object){
         if (movingObject != null) {
             movingObject = null;
         }
@@ -54,20 +54,20 @@ public class GameModel {
         return movingObject == null;
     }
     private boolean tileNotEmpty(){
-        Iterator<Objects> it = setObjects.iterator();
+        Iterator<Item> it = setObjects.iterator();
         while (it.hasNext()){
             System.out.println(setObjects.size());
-            Objects object = (Objects) it.next();
+            Item object = (Item) it.next();
             if (object.getX() == hoverTile.getX() && object.getY() == hoverTile.getY()){
                 return true;
             }
         }
         return false;
     }
-    private Objects getObject(){
-        Iterator<Objects> it = setObjects.iterator();
+    private Item getObject(){
+        Iterator<Item> it = setObjects.iterator();
         while (it.hasNext()){
-            Objects object = (Objects) it.next();
+            Item object = (Item) it.next();
             if (object.getX() == hoverTile.getX() && object.getY() == hoverTile.getY()){
                 return object;
             }
@@ -102,15 +102,15 @@ public class GameModel {
             }
         }
     }
-    private void move(int dx, int dy, Objects object){
+    private void move(int dx, int dy, Item object){
         object.setLocation(object.getX()+dx*tilesize, object.getY()+dy*tilesize);
     }
 
     //getters
-    public ArrayList<Objects> getSetObjects(){
+    public ArrayList<Item> getSetObjects(){
         return setObjects;
     }
-    public Objects getMovingObject(){
+    public Item getMovingObject(){
         return movingObject;
     }
     public int getGameWidth(){
@@ -125,7 +125,7 @@ public class GameModel {
     public int getTileSize(){
         return tilesize;
     }
-    public Objects getHoverTile(){
+    public Item getHoverTile(){
         return hoverTile;
     }
 }

@@ -14,7 +14,8 @@ import javax.swing.JPanel;
 import tycoon.controller.Controller;
 import tycoon.model.GameModel;
 import tycoon.model.GameState;
-import tycoon.model.objects.Objects;
+import tycoon.model.Menu;
+import tycoon.model.items.Item;
 
 public class GameView extends JPanel implements Runnable {
     Thread gameThread;
@@ -24,6 +25,7 @@ public class GameView extends JPanel implements Runnable {
 
     BufferedImage farmHouse;
     BufferedImage welcome;
+    Menu menu = new Menu();
 
     public GameView(){
         try {
@@ -70,20 +72,23 @@ public class GameView extends JPanel implements Runnable {
 
     }
     private void drawSetObjects(Graphics2D g2){
-        ArrayList<Objects> setObjects = model.getSetObjects();
+        ArrayList<Item> setObjects = model.getSetObjects();
         for (int i = 0; i < setObjects.size(); i++){
-            Objects object = setObjects.get(i);
+            Item object = setObjects.get(i);
             g2.drawImage(farmHouse, object.getX(), object.getY(), model.getTileSize(), model.getTileSize(), null);
         }
     }
     private void drawMovingObject(Graphics2D g2){
-        Objects object = model.getMovingObject();
+        Item object = model.getMovingObject();
         g2.drawImage(farmHouse, object.getX(), object.getY(), model.getTileSize(), model.getTileSize(), null);
     }
     private void drawHovering(Graphics2D g2){
         g2.setColor(new Color(0, 0, 0, 200));
-        Objects object = model.getHoverTile();
+        Item object = model.getHoverTile();
         g2.drawRect(object.getX(), object.getY(), model.getTileSize(), model.getTileSize());
+    }
+    private void drawMenu(Graphics2D g2){
+
     }
 
 
