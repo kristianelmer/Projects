@@ -34,8 +34,11 @@ public class GameView extends JPanel implements Runnable {
     BufferedImage shop;
     BufferedImage wealthyHouse;
     HashMap<Item, BufferedImage> structureImages;
+    ArrayList<Item> items;
 
     BufferedImage welcome;
+    BufferedImage grass;
+
 
     Menu menu = new Menu();
 
@@ -51,11 +54,12 @@ public class GameView extends JPanel implements Runnable {
     }
 
     private void getImages(){
-        ArrayList<Item> items = menu.getitems();
+        items = menu.getitems();
         structureImages = new HashMap<>();
         try {
             farmHouse = ImageIO.read(getClass().getResourceAsStream("/craftpix/Objects/7House/1.png"));
             welcome = ImageIO.read(getClass().getResourceAsStream("/welcome.png"));
+            grass = ImageIO.read(getClass().getResourceAsStream("/craftpix/tiles/grass.png"));
             structureImages.put(items.get(0), ImageIO.read(getClass().getResourceAsStream("/structures/chickencoop.png")));
             structureImages.put(items.get(1), ImageIO.read(getClass().getResourceAsStream("/structures/fishhut.png")));
             structureImages.put(items.get(2), ImageIO.read(getClass().getResourceAsStream("/structures/peasanthouse.png")));
@@ -90,6 +94,7 @@ public class GameView extends JPanel implements Runnable {
     }
     private void drawActiveGame(Graphics2D g2){
         drawSetObjects(g2);
+        drawMenu(g2);
         if (model.emtyObject()){
             drawHovering(g2);
         }
@@ -115,6 +120,13 @@ public class GameView extends JPanel implements Runnable {
         g2.drawRect(object.getX(), object.getY(), model.getTileSize(), model.getTileSize());
     }
     private void drawMenu(Graphics2D g2){
+        g2.setColor(new Color(150, 75, 0));
+        g2.fillRect(model.getGameWidth()-106, 0, 106, model.getGameHeight());
+        for (int i = 0; i < items.size(); i++){
+            g2.drawImage(grass, model.getGameWidth()-103, 100*i+3*i, 100, 100, null);
+            g2.drawImage(structureImages.get(items.get(i)), model.getGameWidth()-103, 100*i+3*i, 100, 100, null);
+        }
+
         
     }
 
