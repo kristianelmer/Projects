@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>Player.java</h1>
+
+<table class="src">
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@42028589_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@42028589_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package no.uib.inf101.model.entities;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@42028589_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@42028589_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@42028589_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@42028589_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.awt.Rectangle;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@42028589_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@42028589_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@42028589_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@42028589_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@42028589_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@42028589_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Represents the player character in the game.</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@42028589_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@42028589_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * The player can move, attack, and collect power-ups.</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@42028589_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@42028589_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@42028589_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@42028589_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public class Player extends Entity {</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@42028589_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@42028589_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    boolean isRanged;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@42028589_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@42028589_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    double attackSpeed;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@42028589_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@42028589_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@42028589_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@42028589_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@42028589_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@42028589_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Creates a new player at the specified coordinates.</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@42028589_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@42028589_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * </span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@42028589_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@42028589_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param x The x-coordinate of the player&#39;s position</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@42028589_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@42028589_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param y The y-coordinate of the player&#39;s position</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@42028589_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@42028589_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@42028589_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@42028589_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Player(int x, int y) {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@42028589_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@42028589_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        super(x, y);</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@42028589_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@42028589_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        attackSpeed = 1;</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@42028589_22'/>
+22
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@42028589_22'>1</a>
+<span>
+1. &#60;init&#62; : removed call to no/uib/inf101/model/entities/Player::setAttackRange &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        setAttackRange(100,100);</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@42028589_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@42028589_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        attackPower = 50;</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@42028589_24'/>
+24
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@42028589_24'>1</a>
+<span>
+1. &#60;init&#62; : removed call to no/uib/inf101/model/entities/Player::setSpeed &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        setSpeed(10);</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@42028589_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@42028589_25'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        isRanged = false;</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@42028589_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@42028589_26'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@42028589_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@42028589_27'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@42028589_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@42028589_28'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@42028589_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@42028589_29'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Gets the area of effect for the player&#39;s attack.</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@42028589_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@42028589_30'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * </span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@42028589_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@42028589_31'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param aoewidth The width of the area of effect</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@42028589_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@42028589_32'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @return A rectangle representing the area of effect</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@42028589_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@42028589_33'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@42028589_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@42028589_34'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Rectangle getAOE(int aoewidth) {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@42028589_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@42028589_35'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        int x = getX();</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@42028589_36'/>
+36
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@42028589_36'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        int y = getY();</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@42028589_37'/>
+37
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@42028589_37'>3</a>
+<span>
+1. getAOE : replaced return value with null for no/uib/inf101/model/entities/Player::getAOE &rarr; KILLED<br/>
+2. getAOE : Replaced integer subtraction with addition &rarr; KILLED<br/>
+3. getAOE : Replaced integer subtraction with addition &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return new Rectangle(x - aoewidth, y - aoewidth, </span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@42028589_38'/>
+38
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@42028589_38'>4</a>
+<span>
+1. getAOE : Replaced integer multiplication with division &rarr; KILLED<br/>
+2. getAOE : Replaced integer multiplication with division &rarr; KILLED<br/>
+3. getAOE : Replaced integer addition with subtraction &rarr; KILLED<br/>
+4. getAOE : Replaced integer addition with subtraction &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            aoewidth * 2 + getEntitySize(), aoewidth * 2 + getEntitySize());</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@42028589_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@42028589_39'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@42028589_40'/>
+40
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@42028589_40'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@42028589_41'/>
+41
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@42028589_41'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@42028589_42'/>
+42
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@42028589_42'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Sets whether the player has ranged attacks.</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@42028589_43'/>
+43
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@42028589_43'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * </span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@42028589_44'/>
+44
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@42028589_44'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param isRanged true if the player has ranged attacks, false otherwise</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@42028589_45'/>
+45
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@42028589_45'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@42028589_46'/>
+46
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@42028589_46'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void setRanged(boolean isRanged) {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@42028589_47'/>
+47
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@42028589_47'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.isRanged = isRanged;</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@42028589_48'/>
+48
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@42028589_48'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@42028589_49'/>
+49
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@42028589_49'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@42028589_50'/>
+50
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@42028589_50'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@42028589_51'/>
+51
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@42028589_51'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Checks if the player has ranged attacks.</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@42028589_52'/>
+52
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@42028589_52'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * </span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@42028589_53'/>
+53
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@42028589_53'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @return true if the player has ranged attacks, false otherwise</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@42028589_54'/>
+54
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@42028589_54'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@42028589_55'/>
+55
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@42028589_55'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public boolean getIsRanged() {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@42028589_56'/>
+56
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@42028589_56'>2</a>
+<span>
+1. getIsRanged : replaced boolean return with true for no/uib/inf101/model/entities/Player::getIsRanged &rarr; KILLED<br/>
+2. getIsRanged : replaced boolean return with false for no/uib/inf101/model/entities/Player::getIsRanged &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return isRanged;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@42028589_57'/>
+57
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@42028589_57'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@42028589_58'/>
+58
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@42028589_58'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@42028589_59'/>
+59
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@42028589_59'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@42028589_60'/>
+60
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@42028589_60'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Gets the player&#39;s attack speed.</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@42028589_61'/>
+61
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@42028589_61'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * </span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@42028589_62'/>
+62
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@42028589_62'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @return The player&#39;s attack speed</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@42028589_63'/>
+63
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@42028589_63'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@42028589_64'/>
+64
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@42028589_64'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public double getAttackSpeed() {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@42028589_65'/>
+65
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@42028589_65'>1</a>
+<span>
+1. getAttackSpeed : replaced double return with 0.0d for no/uib/inf101/model/entities/Player::getAttackSpeed &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return attackSpeed;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@42028589_66'/>
+66
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@42028589_66'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@42028589_67'/>
+67
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@42028589_67'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@42028589_68'/>
+68
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@42028589_68'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@42028589_69'/>
+69
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@42028589_69'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Sets the player&#39;s attack speed.</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@42028589_70'/>
+70
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@42028589_70'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * </span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@42028589_71'/>
+71
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@42028589_71'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param attackSpeed The new attack speed</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@42028589_72'/>
+72
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@42028589_72'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@42028589_73'/>
+73
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@42028589_73'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void setAttackSpeed(double attackSpeed) {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@42028589_74'/>
+74
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@42028589_74'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.attackSpeed = attackSpeed;</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@42028589_75'/>
+75
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@42028589_75'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@42028589_76'/>
+76
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@42028589_76'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@42028589_22'>22</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@42028589_22'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>no.uib.inf101.model.entities.PlayerTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.entities.PlayerTest]/[method:testInitialState()]</span></span> removed call to no/uib/inf101/model/entities/Player::setAttackRange &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@42028589_24'>24</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@42028589_24'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>no.uib.inf101.model.entities.PlayerTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.entities.PlayerTest]/[method:testInitialState()]</span></span> removed call to no/uib/inf101/model/entities/Player::setSpeed &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@42028589_37'>37</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@42028589_37'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getAOE<br/><b>Killed by : </b>no.uib.inf101.model.entities.PlayerTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.entities.PlayerTest]/[method:testAttackArea()]</span></span> replaced return value with null for no/uib/inf101/model/entities/Player::getAOE &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getAOE<br/><b>Killed by : </b>no.uib.inf101.model.entities.PlayerTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.entities.PlayerTest]/[method:testAttackArea()]</span></span> Replaced integer subtraction with addition &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>getAOE<br/><b>Killed by : </b>no.uib.inf101.model.entities.PlayerTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.entities.PlayerTest]/[method:testAttackArea()]</span></span> Replaced integer subtraction with addition &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@42028589_38'>38</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@42028589_38'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getAOE<br/><b>Killed by : </b>no.uib.inf101.model.entities.PlayerTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.entities.PlayerTest]/[method:testAttackArea()]</span></span> Replaced integer multiplication with division &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getAOE<br/><b>Killed by : </b>no.uib.inf101.model.entities.PlayerTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.entities.PlayerTest]/[method:testAttackArea()]</span></span> Replaced integer multiplication with division &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>getAOE<br/><b>Killed by : </b>no.uib.inf101.model.entities.PlayerTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.entities.PlayerTest]/[method:testAttackArea()]</span></span> Replaced integer addition with subtraction &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>getAOE<br/><b>Killed by : </b>no.uib.inf101.model.entities.PlayerTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.entities.PlayerTest]/[method:testAttackArea()]</span></span> Replaced integer addition with subtraction &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@42028589_56'>56</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@42028589_56'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getIsRanged<br/><b>Killed by : </b>no.uib.inf101.model.entities.PlayerTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.entities.PlayerTest]/[method:testRangedMode()]</span></span> replaced boolean return with true for no/uib/inf101/model/entities/Player::getIsRanged &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getIsRanged<br/><b>Killed by : </b>no.uib.inf101.model.entities.PlayerTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.entities.PlayerTest]/[method:testRangedMode()]</span></span> replaced boolean return with false for no/uib/inf101/model/entities/Player::getIsRanged &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@42028589_65'>65</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@42028589_65'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getAttackSpeed<br/><b>Killed by : </b>no.uib.inf101.model.entities.PlayerTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.entities.PlayerTest]/[method:testAttackSpeed()]</span></span> replaced double return with 0.0d for no/uib/inf101/model/entities/Player::getAttackSpeed &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+<li class='mutator'>CONDITIONALS_BOUNDARY</li>
+<li class='mutator'>EMPTY_RETURNS</li>
+<li class='mutator'>FALSE_RETURNS</li>
+<li class='mutator'>INCREMENTS</li>
+<li class='mutator'>INVERT_NEGS</li>
+<li class='mutator'>MATH</li>
+<li class='mutator'>NEGATE_CONDITIONALS</li>
+<li class='mutator'>NULL_RETURNS</li>
+<li class='mutator'>PRIMITIVE_RETURNS</li>
+<li class='mutator'>TRUE_RETURNS</li>
+<li class='mutator'>VOID_METHOD_CALLS</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>no.uib.inf101.model.entities.PlayerTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.entities.PlayerTest]/[method:testAttackPower()] (0 ms)</li><li>no.uib.inf101.model.entities.PlayerTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.entities.PlayerTest]/[method:testDamage()] (0 ms)</li><li>no.uib.inf101.model.entities.PlayerTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.entities.PlayerTest]/[method:testEntitySize()] (0 ms)</li><li>no.uib.inf101.model.entities.PlayerTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.entities.PlayerTest]/[method:testHealth()] (0 ms)</li><li>no.uib.inf101.model.entities.PlayerTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.entities.PlayerTest]/[method:testAttackSpeed()] (0 ms)</li><li>no.uib.inf101.model.entities.PlayerTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.entities.PlayerTest]/[method:testMovement()] (0 ms)</li><li>no.uib.inf101.model.entities.PlayerTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.entities.PlayerTest]/[method:testRangedMode()] (0 ms)</li><li>no.uib.inf101.model.entities.PlayerTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.entities.PlayerTest]/[method:testInitialState()] (0 ms)</li><li>no.uib.inf101.model.entities.PlayerTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.entities.PlayerTest]/[method:testAttackArea()] (0 ms)</li><li>no.uib.inf101.model.powerups.SpeedBoostTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.powerups.SpeedBoostTest]/[method:testActivate()] (0 ms)</li><li>no.uib.inf101.model.powerups.PowerUpTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.powerups.PowerUpTest]/[method:testBounds()] (0 ms)</li><li>no.uib.inf101.model.powerups.PowerUpTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.powerups.PowerUpTest]/[method:testActivate()] (0 ms)</li><li>no.uib.inf101.view.PlayerHealthBarTest.[engine:junit-jupiter]/[class:no.uib.inf101.view.PlayerHealthBarTest]/[method:testInitialHealthBar()] (0 ms)</li><li>no.uib.inf101.view.PlayerHealthBarTest.[engine:junit-jupiter]/[class:no.uib.inf101.view.PlayerHealthBarTest]/[method:testHealthBarAfterDamage()] (0 ms)</li><li>no.uib.inf101.model.powerups.PowerUpTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.powerups.PowerUpTest]/[method:testImage()] (0 ms)</li><li>no.uib.inf101.view.PlayerHealthBarTest.[engine:junit-jupiter]/[class:no.uib.inf101.view.PlayerHealthBarTest]/[method:testHealthBarAtZeroHealth()] (0 ms)</li><li>no.uib.inf101.model.powerups.AttackSpeedBoostTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.powerups.AttackSpeedBoostTest]/[method:testMultipleActivations()] (0 ms)</li><li>no.uib.inf101.model.powerups.PowerUpTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.powerups.PowerUpTest]/[method:testInitialState()] (0 ms)</li><li>no.uib.inf101.model.powerups.AttackBoostTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.powerups.AttackBoostTest]/[method:testMultipleActivations()] (0 ms)</li><li>no.uib.inf101.model.powerups.AttackSpeedBoostTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.powerups.AttackSpeedBoostTest]/[method:testInitialState()] (0 ms)</li><li>no.uib.inf101.model.powerups.AttackBoostTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.powerups.AttackBoostTest]/[method:testActivate()] (0 ms)</li><li>no.uib.inf101.model.powerups.BecomeRangedTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.powerups.BecomeRangedTest]/[method:testMultipleActivations()] (0 ms)</li><li>no.uib.inf101.model.powerups.MaxHealthGainTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.powerups.MaxHealthGainTest]/[method:testInitialState()] (0 ms)</li><li>no.uib.inf101.model.powerups.HealthRegenTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.powerups.HealthRegenTest]/[method:testInitialState()] (0 ms)</li><li>no.uib.inf101.model.powerups.BecomeRangedTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.powerups.BecomeRangedTest]/[method:testInitialState()] (0 ms)</li><li>no.uib.inf101.view.PlayerHealthBarTest.[engine:junit-jupiter]/[class:no.uib.inf101.view.PlayerHealthBarTest]/[method:testHealthBarAfterHealing()] (0 ms)</li><li>no.uib.inf101.model.powerups.AttackWidthBoostTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.powerups.AttackWidthBoostTest]/[method:testActivate()] (0 ms)</li><li>no.uib.inf101.model.powerups.HealthRegenTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.powerups.HealthRegenTest]/[method:testMultipleActivations()] (0 ms)</li><li>no.uib.inf101.model.powerups.AttackSpeedBoostTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.powerups.AttackSpeedBoostTest]/[method:testActivate()] (0 ms)</li><li>no.uib.inf101.model.powerups.AttackWidthBoostTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.powerups.AttackWidthBoostTest]/[method:testInitialState()] (0 ms)</li><li>no.uib.inf101.model.powerups.HealthRegenTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.powerups.HealthRegenTest]/[method:testActivateAtFullHealth()] (0 ms)</li><li>no.uib.inf101.model.powerups.MaxHealthGainTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.powerups.MaxHealthGainTest]/[method:testActivate()] (0 ms)</li><li>no.uib.inf101.model.powerups.BecomeRangedTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.powerups.BecomeRangedTest]/[method:testActivate()] (0 ms)</li><li>no.uib.inf101.model.WaveManagerTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.WaveManagerTest]/[method:testInitialState()] (0 ms)</li><li>no.uib.inf101.model.powerups.AttackRangeBoostTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.powerups.AttackRangeBoostTest]/[method:testActivate()] (0 ms)</li><li>no.uib.inf101.model.powerups.HealthRegenTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.powerups.HealthRegenTest]/[method:testActivate()] (0 ms)</li><li>no.uib.inf101.model.powerups.AttackRangeBoostTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.powerups.AttackRangeBoostTest]/[method:testMultipleActivations()] (0 ms)</li><li>no.uib.inf101.model.powerups.SpeedBoostTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.powerups.SpeedBoostTest]/[method:testMultipleActivations()] (0 ms)</li><li>no.uib.inf101.model.powerups.AttackRangeBoostTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.powerups.AttackRangeBoostTest]/[method:testInitialState()] (0 ms)</li><li>no.uib.inf101.model.powerups.MaxHealthGainTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.powerups.MaxHealthGainTest]/[method:testMultipleActivations()] (0 ms)</li><li>no.uib.inf101.model.powerups.AttackWidthBoostTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.powerups.AttackWidthBoostTest]/[method:testMultipleActivations()] (0 ms)</li><li>no.uib.inf101.model.powerups.AttackBoostTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.powerups.AttackBoostTest]/[method:testInitialState()] (0 ms)</li><li>no.uib.inf101.model.powerups.SpeedBoostTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.powerups.SpeedBoostTest]/[method:testInitialState()] (0 ms)</li><li>no.uib.inf101.model.RandomMonsterFactoryTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.RandomMonsterFactoryTest]/[method:testMultipleMonsterSpawns()] (0 ms)</li><li>no.uib.inf101.model.GameModelTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.GameModelTest]/[method:testAttackDirection()] (0 ms)</li><li>no.uib.inf101.model.GameModelTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.GameModelTest]/[method:testInitialState()] (0 ms)</li><li>no.uib.inf101.model.GameModelTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.GameModelTest]/[method:testPauseAndResumeGame()] (0 ms)</li><li>no.uib.inf101.model.RandomMonsterFactoryTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.RandomMonsterFactoryTest]/[method:testMonsterSpawnAwayFromPlayer()] (0 ms)</li><li>no.uib.inf101.model.RandomMonsterFactoryTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.RandomMonsterFactoryTest]/[method:testMonsterSpawn()] (0 ms)</li><li>no.uib.inf101.model.RandomMonsterFactoryTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.RandomMonsterFactoryTest]/[method:testMonsterProperties()] (0 ms)</li><li>no.uib.inf101.model.GameModelTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.GameModelTest]/[method:testAttackArea()] (0 ms)</li><li>no.uib.inf101.model.GameModelTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.GameModelTest]/[method:testReturnValues()] (0 ms)</li><li>no.uib.inf101.model.powerups.RandomPowerUpFactoryTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.powerups.RandomPowerUpFactoryTest]/[method:testPowerUpActivation()] (0 ms)</li><li>no.uib.inf101.model.WaveManagerTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.WaveManagerTest]/[method:testMonstersPerWaveIncrement()] (0 ms)</li><li>no.uib.inf101.model.WaveManagerTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.WaveManagerTest]/[method:testWaveNumberIncrement()] (0 ms)</li><li>no.uib.inf101.model.powerups.RandomPowerUpFactoryTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.powerups.RandomPowerUpFactoryTest]/[method:testGetRandomPowerUp()] (0 ms)</li><li>no.uib.inf101.model.WaveManagerTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.WaveManagerTest]/[method:testMonsterStrengthScaling()] (0 ms)</li><li>no.uib.inf101.model.powerups.RandomPowerUpFactoryTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.powerups.RandomPowerUpFactoryTest]/[method:testMultiplePowerUps()] (0 ms)</li><li>no.uib.inf101.model.WaveManagerTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.WaveManagerTest]/[method:testNormalWaveSpawn()] (0 ms)</li><li>no.uib.inf101.model.WaveManagerTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.WaveManagerTest]/[method:testBossWaveSpawn()] (0 ms)</li><li>no.uib.inf101.model.GameModelTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.GameModelTest]/[method:testPlayerTakesDamageFromMonsters()] (0 ms)</li><li>no.uib.inf101.model.GameModelTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.GameModelTest]/[method:testGameOverOnPlayerDeath()] (0 ms)</li><li>no.uib.inf101.model.GameModelTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.GameModelTest]/[method:testMonsterDamageOnAttack()] (0 ms)</li><li>no.uib.inf101.model.GameModelTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.GameModelTest]/[method:testSecCounterIncrement()] (0 ms)</li><li>no.uib.inf101.model.GameModelTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.GameModelTest]/[method:testGameRestart()] (0 ms)</li><li>no.uib.inf101.model.GameModelTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.GameModelTest]/[method:testMathematicalOperations()] (0 ms)</li><li>no.uib.inf101.model.GameModelTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.GameModelTest]/[method:testConditionalBoundaries()] (0 ms)</li><li>no.uib.inf101.model.GameModelTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.GameModelTest]/[method:testNewWaveWhenMonstersCleared()] (1 ms)</li><li>no.uib.inf101.model.GameModelTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.GameModelTest]/[method:testMethodCalls()] (0 ms)</li><li>no.uib.inf101.model.GameModelTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.GameModelTest]/[method:testSpaceAttackTrigger()] (0 ms)</li><li>no.uib.inf101.model.GameModelTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.GameModelTest]/[method:testPlayerMovement()] (0 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='https://pitest.org'>PIT</a> 1.17.4
+
+</body>
+</html>

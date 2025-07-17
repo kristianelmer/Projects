@@ -1,0 +1,1692 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>WaveManager.java</h1>
+
+<table class="src">
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package no.uib.inf101.model;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.ArrayList;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import no.uib.inf101.model.entities.Monster;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Manages the spawning and scaling of monster waves in the game.</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Handles both regular monster waves and boss waves, with increasing difficulty.</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public class WaveManager {</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** Factory for creating random monsters */</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private RandomMonsterFactory monsterFactory;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** Current wave number */</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private int waveNumber;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** Number of monsters to spawn in the next wave */</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private int monstersPerWave;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** Reference to the game model */</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private GameModel model;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** Flag indicating if a boss is currently active */</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    private boolean isBossActive = false;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Creates a new wave manager for the specified game model.</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_25'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * </span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_26'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param model The game model</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_27'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_28'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    public WaveManager(GameModel model) {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_29'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        monsterFactory = new RandomMonsterFactory();</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_30'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        waveNumber = 0;</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_31'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        monstersPerWave = 10;</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_32'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.model = model;</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_33'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_34'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_35'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_36'/>
+36
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_36'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Spawns a new wave of monsters or a boss.</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_37'/>
+37
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_37'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Every 5th wave is a boss wave.</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_38'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * </span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_39'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param mapWidth The width of the map</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_40'/>
+40
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_40'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param mapHeight The height of the map</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_41'/>
+41
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_41'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @return A list of monsters for the new wave</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_42'/>
+42
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_42'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_43'/>
+43
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_43'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public ArrayList&#60;Monster&#62; spawnMonsters(int mapWidth, int mapHeight) {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_44'/>
+44
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_44'>1</a>
+<span>
+1. spawnMonsters : Replaced integer addition with subtraction &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        waveNumber++;</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_45'/>
+45
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_45'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        ArrayList&#60;Monster&#62; monsters = new ArrayList&#60;&#62;();</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_46'/>
+46
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_46'>2</a>
+<span>
+1. spawnMonsters : negated conditional &rarr; KILLED<br/>
+2. spawnMonsters : Replaced integer modulus with multiplication &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (waveNumber%5 == 0){</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_47'/>
+47
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_47'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            isBossActive = true;</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_48'/>
+48
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_48'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            Monster boss = BossFactory.spawnBoss(mapWidth, mapHeight);</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_49'/>
+49
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_49'>1</a>
+<span>
+1. spawnMonsters : negated conditional &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>            while (boss.getBounds().intersects(model.getPlayer().getAOE(100))){</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_50'/>
+50
+</td>
+<td class='uncertain'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_50'>1</a>
+<span>
+1. spawnMonsters : removed call to no/uib/inf101/model/entities/Monster::move &rarr; TIMED_OUT<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='uncertain'>                boss.move(0, -1);</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_51'/>
+51
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_51'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_52'/>
+52
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_52'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            monsters.add(boss);</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_53'/>
+53
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_53'>1</a>
+<span>
+1. spawnMonsters : replaced return value with null for no/uib/inf101/model/WaveManager::spawnMonsters &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            return monsters;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_54'/>
+54
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_54'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_55'/>
+55
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_55'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        isBossActive = false;</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_56'/>
+56
+</td>
+<td class='uncertain'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_56'>3</a>
+<span>
+1. spawnMonsters : Changed increment from 1 to -1 &rarr; TIMED_OUT<br/>
+2. spawnMonsters : changed conditional boundary &rarr; KILLED<br/>
+3. spawnMonsters : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='uncertain'>        for (int i = 0; i &#60; monstersPerWave; i++) {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_57'/>
+57
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_57'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            Monster monster = monsterFactory.createRandomMonster(mapWidth, mapHeight, model.getPlayer());</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_58'/>
+58
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_58'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            monsters.add(monster);</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_59'/>
+59
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_59'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_60'/>
+60
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_60'>1</a>
+<span>
+1. spawnMonsters : Replaced integer addition with subtraction &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        monstersPerWave++; </span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_61'/>
+61
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_61'>2</a>
+<span>
+1. spawnMonsters : Replaced integer subtraction with addition &rarr; SURVIVED<br/>
+2. spawnMonsters : removed call to no/uib/inf101/model/WaveManager::setMonsterStrength &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        setMonsterStrength(waveNumber-1, monsters);</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_62'/>
+62
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_62'>1</a>
+<span>
+1. spawnMonsters : replaced return value with null for no/uib/inf101/model/WaveManager::spawnMonsters &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return monsters;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_63'/>
+63
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_63'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_64'/>
+64
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_64'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_65'/>
+65
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_65'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_66'/>
+66
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_66'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Gets the current wave number.</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_67'/>
+67
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_67'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * </span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_68'/>
+68
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_68'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @return The current wave number</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_69'/>
+69
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_69'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_70'/>
+70
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_70'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public int getWaveNumber() {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_71'/>
+71
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_71'>1</a>
+<span>
+1. getWaveNumber : replaced int return with 0 for no/uib/inf101/model/WaveManager::getWaveNumber &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return waveNumber;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_72'/>
+72
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_72'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_73'/>
+73
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_73'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_74'/>
+74
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_74'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_75'/>
+75
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_75'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Sets the strength of monsters based on the wave number.</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_76'/>
+76
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_76'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Scales attack power, speed, and health with increasing waves.</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_77'/>
+77
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_77'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * </span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_78'/>
+78
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_78'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param strength The wave number to scale from</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_79'/>
+79
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_79'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param monsters The list of monsters to scale</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_80'/>
+80
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_80'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_81'/>
+81
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_81'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private void setMonsterStrength(int strength, ArrayList&#60;Monster&#62; monsters){</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_82'/>
+82
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_82'>2</a>
+<span>
+1. setMonsterStrength : changed conditional boundary &rarr; KILLED<br/>
+2. setMonsterStrength : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        for (int i = 0; i &#60; monsters.size(); i++){</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_83'/>
+83
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_83'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            Monster monster = monsters.get(i);</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_84'/>
+84
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_84'>3</a>
+<span>
+1. setMonsterStrength : removed call to no/uib/inf101/model/entities/Monster::setAttackPower &rarr; SURVIVED<br/>
+2. setMonsterStrength : Replaced double multiplication with division &rarr; KILLED<br/>
+3. setMonsterStrength : Replaced double addition with subtraction &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>            monster.setAttackPower((int) Math.floor(1+0.25*strength));</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_85'/>
+85
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_85'>3</a>
+<span>
+1. setMonsterStrength : removed call to no/uib/inf101/model/entities/Monster::setSpeed &rarr; SURVIVED<br/>
+2. setMonsterStrength : Replaced double multiplication with division &rarr; KILLED<br/>
+3. setMonsterStrength : Replaced double addition with subtraction &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>            monster.setSpeed((int) Math.floor(2+0.125*strength));</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_86'/>
+86
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_86'>3</a>
+<span>
+1. setMonsterStrength : removed call to no/uib/inf101/model/entities/Monster::setMaxHealth &rarr; KILLED<br/>
+2. setMonsterStrength : Replaced integer multiplication with division &rarr; KILLED<br/>
+3. setMonsterStrength : Replaced integer addition with subtraction &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            monster.setMaxHealth(100+25*strength);</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_87'/>
+87
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_87'>1</a>
+<span>
+1. setMonsterStrength : removed call to no/uib/inf101/model/entities/Monster::setHealth &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>            monster.setHealth(monster.getMaxhealth());</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_88'/>
+88
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_88'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_89'/>
+89
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_89'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_90'/>
+90
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_90'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_91'/>
+91
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_91'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_92'/>
+92
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_92'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Checks if a boss is currently active.</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_93'/>
+93
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_93'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * </span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_94'/>
+94
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_94'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @return true if a boss is active, false otherwise</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_95'/>
+95
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_95'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_96'/>
+96
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_96'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public boolean getIsBossActive(){</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_97'/>
+97
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_97'>2</a>
+<span>
+1. getIsBossActive : replaced boolean return with true for no/uib/inf101/model/WaveManager::getIsBossActive &rarr; KILLED<br/>
+2. getIsBossActive : replaced boolean return with false for no/uib/inf101/model/WaveManager::getIsBossActive &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return isBossActive;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_98'/>
+98
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_98'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_99'/>
+99
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_99'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_44'>44</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_44'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>spawnMonsters<br/><b>Killed by : </b>no.uib.inf101.model.WaveManagerTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.WaveManagerTest]/[method:testWaveNumberIncrement()]</span></span> Replaced integer addition with subtraction &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_46'>46</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_46'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>spawnMonsters<br/><b>Killed by : </b>no.uib.inf101.model.WaveManagerTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.WaveManagerTest]/[method:testMonstersPerWaveIncrement()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>spawnMonsters<br/><b>Killed by : </b>no.uib.inf101.model.WaveManagerTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.WaveManagerTest]/[method:testBossWaveSpawn()]</span></span> Replaced integer modulus with multiplication &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_49'>49</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_49'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>spawnMonsters<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=no.uib.inf101.model.WaveManager,-method=spawnMonsters,-methodDesc=(II)Ljava/util/ArrayList;],-indexes=[54],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=no.uib.inf101.model.WaveManager,-method=spawnMonsters,-methodDesc=(II)Ljava/util/ArrayList;],-indexes=[54],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=no.uib.inf101.model.WaveManager,-method=spawnMonsters,-methodDesc=(II)Ljava/util/ArrayList;],-indexes=[54],-mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>no.uib.inf101.model.WaveManagerTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.WaveManagerTest]/[method:testBossWaveSpawn()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_50'>50</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_50'/> 
+
+<p class='TIMED_OUT'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>spawnMonsters<br/><b>Killed by : </b>none</span></span> removed call to no/uib/inf101/model/entities/Monster::move &rarr; TIMED_OUT</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_53'>53</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_53'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>spawnMonsters<br/><b>Killed by : </b>no.uib.inf101.model.WaveManagerTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.WaveManagerTest]/[method:testBossWaveSpawn()]</span></span> replaced return value with null for no/uib/inf101/model/WaveManager::spawnMonsters &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_56'>56</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_56'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>spawnMonsters<br/><b>Killed by : </b>no.uib.inf101.model.WaveManagerTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.WaveManagerTest]/[method:testMonstersPerWaveIncrement()]</span></span> changed conditional boundary &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>spawnMonsters<br/><b>Killed by : </b>no.uib.inf101.model.WaveManagerTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.WaveManagerTest]/[method:testMonstersPerWaveIncrement()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='TIMED_OUT'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>spawnMonsters<br/><b>Killed by : </b>none</span></span> Changed increment from 1 to -1 &rarr; TIMED_OUT</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_60'>60</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_60'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>spawnMonsters<br/><b>Killed by : </b>no.uib.inf101.model.WaveManagerTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.WaveManagerTest]/[method:testMonstersPerWaveIncrement()]</span></span> Replaced integer addition with subtraction &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_61'>61</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_61'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>spawnMonsters<br/><b>Killed by : </b>no.uib.inf101.model.WaveManagerTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.WaveManagerTest]/[method:testMonsterStrengthScaling()]</span></span> removed call to no/uib/inf101/model/WaveManager::setMonsterStrength &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>spawnMonsters<br/><b>Killed by : </b>none</span></span> Replaced integer subtraction with addition &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=no.uib.inf101.model.WaveManager,-method=spawnMonsters,-methodDesc=(II)Ljava/util/ArrayList;],-indexes=[118],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=no.uib.inf101.model.WaveManager,-method=spawnMonsters,-methodDesc=(II)Ljava/util/ArrayList;],-indexes=[118],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=no.uib.inf101.model.WaveManager,-method=spawnMonsters,-methodDesc=(II)Ljava/util/ArrayList;],-indexes=[118],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>no.uib.inf101.model.WaveManagerTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.WaveManagerTest]/[method:testMonstersPerWaveIncrement()]</li> <li>no.uib.inf101.model.WaveManagerTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.WaveManagerTest]/[method:testWaveNumberIncrement()]</li> <li>no.uib.inf101.model.WaveManagerTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.WaveManagerTest]/[method:testMonsterStrengthScaling()]</li> <li>no.uib.inf101.model.WaveManagerTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.WaveManagerTest]/[method:testBossWaveSpawn()]</li> <li>no.uib.inf101.model.WaveManagerTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.WaveManagerTest]/[method:testNormalWaveSpawn()]</li> <li>no.uib.inf101.model.GameModelTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.GameModelTest]/[method:testPlayerTakesDamageFromMonsters()]</li> <li>no.uib.inf101.model.GameModelTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.GameModelTest]/[method:testGameOverOnPlayerDeath()]</li> <li>no.uib.inf101.model.GameModelTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.GameModelTest]/[method:testMonsterDamageOnAttack()]</li> <li>no.uib.inf101.model.GameModelTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.GameModelTest]/[method:testSecCounterIncrement()]</li> <li>no.uib.inf101.model.GameModelTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.GameModelTest]/[method:testGameRestart()]</li> <li>no.uib.inf101.model.GameModelTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.GameModelTest]/[method:testMathematicalOperations()]</li> <li>no.uib.inf101.model.GameModelTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.GameModelTest]/[method:testMethodCalls()]</li> <li>no.uib.inf101.model.GameModelTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.GameModelTest]/[method:testConditionalBoundaries()]</li> <li>no.uib.inf101.model.GameModelTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.GameModelTest]/[method:testNewWaveWhenMonstersCleared()]</li> <li>no.uib.inf101.model.GameModelTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.GameModelTest]/[method:testPlayerMovement()]</li> <li>no.uib.inf101.model.GameModelTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.GameModelTest]/[method:testSpaceAttackTrigger()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_62'>62</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_62'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>spawnMonsters<br/><b>Killed by : </b>no.uib.inf101.model.WaveManagerTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.WaveManagerTest]/[method:testMonstersPerWaveIncrement()]</span></span> replaced return value with null for no/uib/inf101/model/WaveManager::spawnMonsters &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_71'>71</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_71'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getWaveNumber<br/><b>Killed by : </b>no.uib.inf101.model.WaveManagerTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.WaveManagerTest]/[method:testWaveNumberIncrement()]</span></span> replaced int return with 0 for no/uib/inf101/model/WaveManager::getWaveNumber &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_82'>82</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_82'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>setMonsterStrength<br/><b>Killed by : </b>no.uib.inf101.model.WaveManagerTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.WaveManagerTest]/[method:testMonstersPerWaveIncrement()]</span></span> changed conditional boundary &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>setMonsterStrength<br/><b>Killed by : </b>no.uib.inf101.model.WaveManagerTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.WaveManagerTest]/[method:testMonsterStrengthScaling()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_84'>84</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_84'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>setMonsterStrength<br/><b>Killed by : </b>no.uib.inf101.model.WaveManagerTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.WaveManagerTest]/[method:testMonsterStrengthScaling()]</span></span> Replaced double multiplication with division &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>setMonsterStrength<br/><b>Killed by : </b>none</span></span> removed call to no/uib/inf101/model/entities/Monster::setAttackPower &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=no.uib.inf101.model.WaveManager,-method=setMonsterStrength,-methodDesc=(ILjava/util/ArrayList;)V],-indexes=[26],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=no.uib.inf101.model.WaveManager,-method=setMonsterStrength,-methodDesc=(ILjava/util/ArrayList;)V],-indexes=[26],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=no.uib.inf101.model.WaveManager,-method=setMonsterStrength,-methodDesc=(ILjava/util/ArrayList;)V],-indexes=[26],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>no.uib.inf101.model.WaveManagerTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.WaveManagerTest]/[method:testMonstersPerWaveIncrement()]</li> <li>no.uib.inf101.model.WaveManagerTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.WaveManagerTest]/[method:testWaveNumberIncrement()]</li> <li>no.uib.inf101.model.WaveManagerTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.WaveManagerTest]/[method:testMonsterStrengthScaling()]</li> <li>no.uib.inf101.model.WaveManagerTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.WaveManagerTest]/[method:testBossWaveSpawn()]</li> <li>no.uib.inf101.model.WaveManagerTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.WaveManagerTest]/[method:testNormalWaveSpawn()]</li> <li>no.uib.inf101.model.GameModelTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.GameModelTest]/[method:testPlayerTakesDamageFromMonsters()]</li> <li>no.uib.inf101.model.GameModelTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.GameModelTest]/[method:testGameOverOnPlayerDeath()]</li> <li>no.uib.inf101.model.GameModelTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.GameModelTest]/[method:testMonsterDamageOnAttack()]</li> <li>no.uib.inf101.model.GameModelTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.GameModelTest]/[method:testSecCounterIncrement()]</li> <li>no.uib.inf101.model.GameModelTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.GameModelTest]/[method:testGameRestart()]</li> <li>no.uib.inf101.model.GameModelTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.GameModelTest]/[method:testMathematicalOperations()]</li> <li>no.uib.inf101.model.GameModelTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.GameModelTest]/[method:testMethodCalls()]</li> <li>no.uib.inf101.model.GameModelTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.GameModelTest]/[method:testConditionalBoundaries()]</li> <li>no.uib.inf101.model.GameModelTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.GameModelTest]/[method:testNewWaveWhenMonstersCleared()]</li> <li>no.uib.inf101.model.GameModelTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.GameModelTest]/[method:testPlayerMovement()]</li> <li>no.uib.inf101.model.GameModelTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.GameModelTest]/[method:testSpaceAttackTrigger()]</li> 
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>setMonsterStrength<br/><b>Killed by : </b>no.uib.inf101.model.WaveManagerTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.WaveManagerTest]/[method:testMonsterStrengthScaling()]</span></span> Replaced double addition with subtraction &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_85'>85</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_85'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>setMonsterStrength<br/><b>Killed by : </b>no.uib.inf101.model.WaveManagerTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.WaveManagerTest]/[method:testMonsterStrengthScaling()]</span></span> Replaced double multiplication with division &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>setMonsterStrength<br/><b>Killed by : </b>none</span></span> removed call to no/uib/inf101/model/entities/Monster::setSpeed &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=no.uib.inf101.model.WaveManager,-method=setMonsterStrength,-methodDesc=(ILjava/util/ArrayList;)V],-indexes=[38],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=no.uib.inf101.model.WaveManager,-method=setMonsterStrength,-methodDesc=(ILjava/util/ArrayList;)V],-indexes=[38],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=no.uib.inf101.model.WaveManager,-method=setMonsterStrength,-methodDesc=(ILjava/util/ArrayList;)V],-indexes=[38],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>no.uib.inf101.model.WaveManagerTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.WaveManagerTest]/[method:testMonstersPerWaveIncrement()]</li> <li>no.uib.inf101.model.WaveManagerTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.WaveManagerTest]/[method:testWaveNumberIncrement()]</li> <li>no.uib.inf101.model.WaveManagerTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.WaveManagerTest]/[method:testMonsterStrengthScaling()]</li> <li>no.uib.inf101.model.WaveManagerTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.WaveManagerTest]/[method:testBossWaveSpawn()]</li> <li>no.uib.inf101.model.WaveManagerTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.WaveManagerTest]/[method:testNormalWaveSpawn()]</li> <li>no.uib.inf101.model.GameModelTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.GameModelTest]/[method:testPlayerTakesDamageFromMonsters()]</li> <li>no.uib.inf101.model.GameModelTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.GameModelTest]/[method:testGameOverOnPlayerDeath()]</li> <li>no.uib.inf101.model.GameModelTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.GameModelTest]/[method:testMonsterDamageOnAttack()]</li> <li>no.uib.inf101.model.GameModelTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.GameModelTest]/[method:testSecCounterIncrement()]</li> <li>no.uib.inf101.model.GameModelTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.GameModelTest]/[method:testGameRestart()]</li> <li>no.uib.inf101.model.GameModelTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.GameModelTest]/[method:testMathematicalOperations()]</li> <li>no.uib.inf101.model.GameModelTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.GameModelTest]/[method:testMethodCalls()]</li> <li>no.uib.inf101.model.GameModelTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.GameModelTest]/[method:testConditionalBoundaries()]</li> <li>no.uib.inf101.model.GameModelTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.GameModelTest]/[method:testNewWaveWhenMonstersCleared()]</li> <li>no.uib.inf101.model.GameModelTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.GameModelTest]/[method:testPlayerMovement()]</li> <li>no.uib.inf101.model.GameModelTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.GameModelTest]/[method:testSpaceAttackTrigger()]</li> 
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>setMonsterStrength<br/><b>Killed by : </b>no.uib.inf101.model.WaveManagerTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.WaveManagerTest]/[method:testMonsterStrengthScaling()]</span></span> Replaced double addition with subtraction &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_86'>86</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_86'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>setMonsterStrength<br/><b>Killed by : </b>no.uib.inf101.model.WaveManagerTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.WaveManagerTest]/[method:testMonsterStrengthScaling()]</span></span> removed call to no/uib/inf101/model/entities/Monster::setMaxHealth &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>setMonsterStrength<br/><b>Killed by : </b>no.uib.inf101.model.WaveManagerTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.WaveManagerTest]/[method:testMonstersPerWaveIncrement()]</span></span> Replaced integer multiplication with division &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>setMonsterStrength<br/><b>Killed by : </b>no.uib.inf101.model.WaveManagerTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.WaveManagerTest]/[method:testMonsterStrengthScaling()]</span></span> Replaced integer addition with subtraction &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_87'>87</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_87'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>setMonsterStrength<br/><b>Killed by : </b>none</span></span> removed call to no/uib/inf101/model/entities/Monster::setHealth &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=no.uib.inf101.model.WaveManager,-method=setMonsterStrength,-methodDesc=(ILjava/util/ArrayList;)V],-indexes=[53],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=no.uib.inf101.model.WaveManager,-method=setMonsterStrength,-methodDesc=(ILjava/util/ArrayList;)V],-indexes=[53],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=no.uib.inf101.model.WaveManager,-method=setMonsterStrength,-methodDesc=(ILjava/util/ArrayList;)V],-indexes=[53],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>no.uib.inf101.model.WaveManagerTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.WaveManagerTest]/[method:testMonstersPerWaveIncrement()]</li> <li>no.uib.inf101.model.WaveManagerTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.WaveManagerTest]/[method:testWaveNumberIncrement()]</li> <li>no.uib.inf101.model.WaveManagerTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.WaveManagerTest]/[method:testMonsterStrengthScaling()]</li> <li>no.uib.inf101.model.WaveManagerTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.WaveManagerTest]/[method:testBossWaveSpawn()]</li> <li>no.uib.inf101.model.WaveManagerTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.WaveManagerTest]/[method:testNormalWaveSpawn()]</li> <li>no.uib.inf101.model.GameModelTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.GameModelTest]/[method:testPlayerTakesDamageFromMonsters()]</li> <li>no.uib.inf101.model.GameModelTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.GameModelTest]/[method:testGameOverOnPlayerDeath()]</li> <li>no.uib.inf101.model.GameModelTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.GameModelTest]/[method:testMonsterDamageOnAttack()]</li> <li>no.uib.inf101.model.GameModelTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.GameModelTest]/[method:testSecCounterIncrement()]</li> <li>no.uib.inf101.model.GameModelTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.GameModelTest]/[method:testGameRestart()]</li> <li>no.uib.inf101.model.GameModelTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.GameModelTest]/[method:testMathematicalOperations()]</li> <li>no.uib.inf101.model.GameModelTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.GameModelTest]/[method:testMethodCalls()]</li> <li>no.uib.inf101.model.GameModelTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.GameModelTest]/[method:testConditionalBoundaries()]</li> <li>no.uib.inf101.model.GameModelTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.GameModelTest]/[method:testNewWaveWhenMonstersCleared()]</li> <li>no.uib.inf101.model.GameModelTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.GameModelTest]/[method:testPlayerMovement()]</li> <li>no.uib.inf101.model.GameModelTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.GameModelTest]/[method:testSpaceAttackTrigger()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7c2e88b9_97'>97</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7c2e88b9_97'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getIsBossActive<br/><b>Killed by : </b>no.uib.inf101.model.WaveManagerTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.WaveManagerTest]/[method:testInitialState()]</span></span> replaced boolean return with true for no/uib/inf101/model/WaveManager::getIsBossActive &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getIsBossActive<br/><b>Killed by : </b>no.uib.inf101.model.WaveManagerTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.WaveManagerTest]/[method:testBossWaveSpawn()]</span></span> replaced boolean return with false for no/uib/inf101/model/WaveManager::getIsBossActive &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+<li class='mutator'>CONDITIONALS_BOUNDARY</li>
+<li class='mutator'>EMPTY_RETURNS</li>
+<li class='mutator'>FALSE_RETURNS</li>
+<li class='mutator'>INCREMENTS</li>
+<li class='mutator'>INVERT_NEGS</li>
+<li class='mutator'>MATH</li>
+<li class='mutator'>NEGATE_CONDITIONALS</li>
+<li class='mutator'>NULL_RETURNS</li>
+<li class='mutator'>PRIMITIVE_RETURNS</li>
+<li class='mutator'>TRUE_RETURNS</li>
+<li class='mutator'>VOID_METHOD_CALLS</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>no.uib.inf101.model.WaveManagerTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.WaveManagerTest]/[method:testMonstersPerWaveIncrement()] (0 ms)</li><li>no.uib.inf101.model.WaveManagerTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.WaveManagerTest]/[method:testWaveNumberIncrement()] (0 ms)</li><li>no.uib.inf101.model.WaveManagerTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.WaveManagerTest]/[method:testMonsterStrengthScaling()] (0 ms)</li><li>no.uib.inf101.model.WaveManagerTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.WaveManagerTest]/[method:testBossWaveSpawn()] (0 ms)</li><li>no.uib.inf101.model.WaveManagerTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.WaveManagerTest]/[method:testNormalWaveSpawn()] (0 ms)</li><li>no.uib.inf101.model.GameModelTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.GameModelTest]/[method:testPlayerTakesDamageFromMonsters()] (0 ms)</li><li>no.uib.inf101.model.GameModelTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.GameModelTest]/[method:testGameOverOnPlayerDeath()] (0 ms)</li><li>no.uib.inf101.model.GameModelTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.GameModelTest]/[method:testMonsterDamageOnAttack()] (0 ms)</li><li>no.uib.inf101.model.GameModelTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.GameModelTest]/[method:testSecCounterIncrement()] (0 ms)</li><li>no.uib.inf101.model.GameModelTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.GameModelTest]/[method:testGameRestart()] (0 ms)</li><li>no.uib.inf101.model.GameModelTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.GameModelTest]/[method:testMathematicalOperations()] (0 ms)</li><li>no.uib.inf101.model.GameModelTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.GameModelTest]/[method:testMethodCalls()] (0 ms)</li><li>no.uib.inf101.model.GameModelTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.GameModelTest]/[method:testConditionalBoundaries()] (0 ms)</li><li>no.uib.inf101.model.GameModelTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.GameModelTest]/[method:testNewWaveWhenMonstersCleared()] (1 ms)</li><li>no.uib.inf101.model.GameModelTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.GameModelTest]/[method:testPlayerMovement()] (0 ms)</li><li>no.uib.inf101.model.GameModelTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.GameModelTest]/[method:testSpaceAttackTrigger()] (0 ms)</li><li>no.uib.inf101.model.WaveManagerTest.[engine:junit-jupiter]/[class:no.uib.inf101.model.WaveManagerTest]/[method:testInitialState()] (0 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='https://pitest.org'>PIT</a> 1.17.4
+
+</body>
+</html>
