@@ -1,0 +1,9 @@
+name,level,type,size
+Ghostly,3,REGULAR,30
+Shadow,3,REGULAR,30
+Phantom,3,REGULAR,45
+Specter,3,REGULAR,30
+Wraith,3,REGULAR,45
+Banshee,3,REGULAR,40
+YellowBoss,10,BOSS,90
+PurpleBoss,10,BOSS,90
